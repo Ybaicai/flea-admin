@@ -72,5 +72,62 @@ class Goods extends Model
         ];
         return $res;
     }
+    public function getPutList($user_id)
+    {
+        $user = User::find($user_id);
+        $putList = $user->goods()->where('status', 1)->select();
+        foreach ($putList as $value) {
+            $album = $value->album->hidden(['Id', 'goods_id']);
+            $value['album'] = $album;
+        }
+        return $putList;
+    }
+    public function getDownList($user_id)
+    {
+        $user = User::find($user_id);
+        $downList = $user->goods()->where('status', 2)->select();
+        foreach ($downList as $value) {
+            $album = $value->album->hidden(['Id', 'goods_id']);
+            $value['album'] = $album;
+        }
+        return $downList;
+    }
+    public function downGoods($goods_id)
+    {
+        $res = Db('goods')->where('Id', $goods_id)->update(['status' => 2]);
+        return $res;
+    }
+    public function upGoods($goods_id)
+    {
+        $res = Db('goods')->where('Id', $goods_id)->update(['status' => 1]);
+        return $res;
+    }
+    public function updateGoods($img_urls, $data, $goods_id)
+    {
+        $res1 = Db('goods')->where('Id', $goods_id)->update($data);
+        Db('album')->where('goods_id', $goods_id)->delete();
+        if ($res1) {
+            $i = 0;
+            foreach ($img_urls as $img_url) {
+                $i++;
+                if ($i > 1) {
+                    $data = [
+                        'img_url' => $img_url,
+                        'goods_id' => $goods_id,
+                    ];
+                    $res = Db('album')->where('goods_id', $goods_id)->insert($data);
+                } else {
+                    $res = true;
+                }
+            }
+            if ($res) {
+                return $res;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
 
 }

@@ -17,6 +17,10 @@ class User extends Model
     {
         return $this->hasMany('cart', 'user_id', 'Id');
     }
+    public function goods()
+    {
+        return $this->hasMany('goods', 'user_id', 'Id');
+    }
 
     public function register($data)
     {

@@ -26,6 +26,11 @@ Route::post('/comments', 'comments/commentSubmit'); //发表评论
 Route::get('/getComments/:id', 'comments/getComments'); //获取评论
 Route::get('/getCartList', 'cart/getCartList'); //获取购物车列表
 Route::post('/postCart', 'cart/postCart'); //发送购物车列表
+Route::get('/getPutList/:user_id', 'goods/getPutList'); //获取已上架商品列表
+Route::get('/getDownList/:user_id', 'goods/getDownList'); //获取已下架商品列表
+Route::put('/downGoods/:goods_id_down', 'goods/downGoods'); //下架商品
+Route::put('/upGoods/:goods_id_up', 'goods/upGoods'); //上架商品
+Route::post('/goodsUpdate', 'goods/updateGoods'); //修改商品信息
 return [
 
 ];

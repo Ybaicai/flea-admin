@@ -29,7 +29,6 @@ class Cart extends Controller
     public function postCart()
     {
         $data = input('post.');
-        $ybc = 1;
         $model = model('Cart');
         $res = $model->postCart($data);
         if ($res > 0) {
