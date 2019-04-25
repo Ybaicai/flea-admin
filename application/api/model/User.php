@@ -21,6 +21,10 @@ class User extends Model
     {
         return $this->hasMany('goods', 'user_id', 'Id');
     }
+    public function address()
+    {
+        return $this->hasMany('address', 'user_id', 'Id');
+    }
 
     public function register($data)
     {

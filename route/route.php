@@ -31,6 +31,11 @@ Route::get('/getDownList/:user_id', 'goods/getDownList'); //获取已下架商�
 Route::put('/downGoods/:goods_id_down', 'goods/downGoods'); //下架商品
 Route::put('/upGoods/:goods_id_up', 'goods/upGoods'); //上架商品
 Route::post('/goodsUpdate', 'goods/updateGoods'); //修改商品信息
+Route::post('/postAddress/:user_id', 'address/postAddress'); //添加收货地址
+Route::get('/getAddress/:user_id', 'address/getAddress'); //获取收货地址
+Route::put('/setDefault/:addr_id', 'address/setDefault'); //设置默认收货地址
+Route::delete('/delAddress/:addr_id', 'address/delAddress'); //删除收货地址
+Route::put('/updateAddress', 'address/updateAddress'); //修改收货地址
 return [
 
 ];
