@@ -36,6 +36,7 @@ Route::get('/getAddress/:user_id', 'address/getAddress'); //获取收货地址
 Route::put('/setDefault/:addr_id', 'address/setDefault'); //设置默认收货地址
 Route::delete('/delAddress/:addr_id', 'address/delAddress'); //删除收货地址
 Route::put('/updateAddress', 'address/updateAddress'); //修改收货地址
+Route::post('/order', 'order/submitOrder'); //提交订单
 return [
 
 ];
