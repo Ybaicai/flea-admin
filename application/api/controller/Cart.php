@@ -42,4 +42,20 @@ class Cart extends Controller
         ];
         return json($data);
     }
+    public function clearCart()
+    {
+        $goods_id = input('post.');
+        $model = model('Cart');
+        $res = $model->clearCart($goods_id);
+        if ($res > 0) {
+            $code = 200;
+        } else {
+            $code = 404;
+        }
+        $data = [
+            'code' => $code,
+            'data' => $res,
+        ];
+        return json($data);
+    }
 }

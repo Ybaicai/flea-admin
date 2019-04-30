@@ -12,6 +12,7 @@
 Route::get('think', function () {
     return 'hello,ThinkPHP5!';
 });
+
 Route::post('/valid', 'valid/valid_token'); //登录验证
 Route::post('/login', 'user/login'); //登录
 Route::post('/register', 'user/register'); //注册
@@ -37,6 +38,19 @@ Route::put('/setDefault/:addr_id', 'address/setDefault'); //设置默认收货�
 Route::delete('/delAddress/:addr_id', 'address/delAddress'); //删除收货地址
 Route::put('/updateAddress', 'address/updateAddress'); //修改收货地址
 Route::post('/order', 'order/submitOrder'); //提交订单
+Route::get('/getOrder/:user_id', 'order/getOrder'); //获取购买商品的订单
+Route::get('/getSaleOrder/:user_id', 'order/getSaleOrder'); //获取销售商品的订单
+Route::post('/delOrder', 'order/delOrder'); //删除订单
+Route::put('/pay/:order_no', 'order/pay'); //支付
+Route::post('/clearCart', 'cart/clearCart'); //删除购物车中已结算商品
+
+Route::post('/admin_valid', 'adminValid/valid_token'); //管理员登录验证
+Route::post('/admin_login', 'adminUser/login'); //管理员登录
+Route::post('/admin_register', 'adminUser/register'); //管理员注册
+Route::post('/admin_updatepass', 'adminUser/updatepass'); //管理员修改密码
+Route::post('/admin_userinfo', 'adminUser/setinfo'); //管理员修改个人资料
+Route::get('/admin_getinfo/:token', 'adminUser/getinfo'); //管理员获取个人资料
+
 return [
 
 ];
