@@ -28,6 +28,7 @@ class User extends Model
 
     public function register($data)
     {
+        $data['status'] = 1;
         $res = Db::name('user')->where('username', $data['username'])->find();
         if ($res) {
             return '用户名已存在';

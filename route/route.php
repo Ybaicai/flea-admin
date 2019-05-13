@@ -50,6 +50,25 @@ Route::post('/admin_register', 'adminUser/register'); //管理员注册
 Route::post('/admin_updatepass', 'adminUser/updatepass'); //管理员修改密码
 Route::post('/admin_userinfo', 'adminUser/setinfo'); //管理员修改个人资料
 Route::get('/admin_getinfo/:token', 'adminUser/getinfo'); //管理员获取个人资料
+Route::get('/getUser', 'adminUser/getUser'); //获取注册用户列表
+Route::put('/bannedUser/:user_id', 'adminUser/bannedUser'); //封禁用户
+Route::put('/unbanUser/:user_id', 'adminUser/unbanUser'); //解封用户
+Route::post('/delUser', 'adminUser/delUser'); //删除用户
+Route::post('/addCategory', 'adminUser/addCategory'); //添加分类
+Route::post('/delCategory', 'adminUser/delCategory'); //删除分类
+Route::put('/updateCategory', 'adminUser/updateCategory'); //删除分类
+Route::get('/getAllUp', 'adminUser/getAllUP'); //获取已上架商品
+Route::get('/getAllDown', 'adminUser/getAllDown'); //获取已下架商品
+Route::post('/delGoods', 'adminUser/delGoods'); //删除商品
+Route::put('/upSelectGoods', 'adminUser/upSelectGoods'); //批量上架商品
+Route::put('/downSelectGoods', 'adminUser/downSelectGoods'); //批量下架商品
+Route::get('/getAllOrder', 'adminUser/getAllOrder'); //获取所有订单
+Route::post('/setSwiper', 'adminUser/setSwiper'); //设置轮播商品
+Route::get('/getSwiper', 'adminUser/getSwiper'); //获取轮播列表
+Route::post('/delSwiper', 'adminUser/delSwiper'); //删除轮播图
+Route::post('/setSpecial', 'adminUser/setSpecial'); //设为特价商品
+Route::post('/cancelSpecial', 'adminUser/cancelSpecial'); //取消特价
+Route::get('/getSpecial', 'adminUser/getSpecial'); //获取特价商品
 
 return [
 
